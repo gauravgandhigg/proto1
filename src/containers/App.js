@@ -1,20 +1,20 @@
 import React, {Component} from 'react';
 import classes from './App.module.css';
 import Persons from '../components/Persons/Persons';
-// import styled from 'styled-components';
-// import styled from 'styled-components';
 import Cockpit from '../components/Cockpit/Cockpit';
+
 
 class App extends Component {
   state = {
     persons:[
-        {id:"1", name:"well",age:11 },
+        {id:"1", name:"well",age:"11" },
         {id: "2", name: "back", age: 12 },
         {id: "3", name: "asdasd", age: 12 },  
         {id: "5", name: "baasdck", age: 12 }
       ],
       otherState: 'no',
-      showpersons: false
+      showpersons: false,
+      changecounter: 0
     
   }
   detelepersonHandler = (personIndex) => {
@@ -32,10 +32,12 @@ class App extends Component {
     const persons=[...this.state.persons];
     persons[personIndex]=person;
 
-    this.setState({
-      persons: persons
-
-    })
+    this.setState((prevState, props)=>{
+      return {
+        persons: persons,
+        changecounter:prevState.changecounter +1
+      };
+    });
   }
   togglepersonsHandler =() =>{
     const doesshow= this.state.showpersons;
