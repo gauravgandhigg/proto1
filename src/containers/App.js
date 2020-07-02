@@ -7,7 +7,7 @@ import Cockpit from '../components/Cockpit/Cockpit';
 class App extends Component {
   state = {
     persons:[
-        {id:"1", name:"well",age:"11" },
+        {id:"1", name:"well",age:11 },
         {id: "2", name: "back", age: 12 },
         {id: "3", name: "asdasd", age: 12 },  
         {id: "5", name: "baasdck", age: 12 }
